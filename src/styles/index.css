@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+:root {
+  --main-color: #fff;
+  --sup-color: rgba(0, 0, 0, 0.54);
+  --sup-opacity-color: rgb(226 226 226 / 54%);
+  --accent-color: #d32f2f;
+}
