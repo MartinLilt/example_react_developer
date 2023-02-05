@@ -73,10 +73,10 @@ const ModalComponent = ({
                 onClick={() => toggleModal(modalTypes.delete)}
                 size="large"
                 variant="outlined"
+                style={{ backgroundColor: "unset", borderColor: "#00AB55" }}
                 sx={{
                   margin: "0 1rem 0 0",
                   color: "#00AB55",
-                  borderColor: "#00AB55",
                   textTransform: "inherit",
                 }}
               >
@@ -86,7 +86,10 @@ const ModalComponent = ({
                 onClick={removeAllElements}
                 size="large"
                 variant="contained"
-                sx={{ background: "#00AB55", textTransform: "inherit" }}
+                style={{ backgroundColor: "#00AB55" }}
+                sx={{
+                  textTransform: "inherit",
+                }}
               >
                 Confirm
               </Button>

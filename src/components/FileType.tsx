@@ -25,8 +25,8 @@ import { IModalInstance } from "../models";
 const FileType = ({ toggleModal, modalTypes }: IModalInstance) => {
   let [value, setValue] = useState(0);
   const { file } = useAppSelector((state) => state);
-
   const allFiles = file.files;
+  const isArray = allFiles.length > 0;
   const currentFile = file.currentFile;
 
   const handleChange = (event: SelectChangeEvent<number>, child: ReactNode) => {
@@ -98,10 +98,14 @@ const FileType = ({ toggleModal, modalTypes }: IModalInstance) => {
                 />
                 <FormControl fullWidth variant="outlined">
                   <Select
+                    variant="standard"
+                    disableUnderline
                     value={value}
                     onChange={handleChange}
                     sx={{
+                      boxShadow: "none",
                       borderRadius: "5px",
+                      border: "1px solid rgba(0, 0, 0, 0.12)",
                       p: "0.2rem 0.7rem",
                       height: "2rem",
                       "& .MuiOutlinedInput-input": {
@@ -157,7 +161,10 @@ const FileType = ({ toggleModal, modalTypes }: IModalInstance) => {
           })}
         </List>
         <Box display="flex" justifyContent="end">
-          <StyledButton onClick={() => toggleModal(modalTypes.delete)}>
+          <StyledButton
+            onClick={() => toggleModal(modalTypes.delete)}
+            disabled={!isArray}
+          >
             Clear all
           </StyledButton>
         </Box>

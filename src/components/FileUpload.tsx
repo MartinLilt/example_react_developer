@@ -143,7 +143,10 @@ const FileUpload = ({ toggleModal, modalTypes }: IModalInstance) => {
                   alignItems="center"
                   justifyContent="center"
                 >
-                  <IconButton onClick={() => toggleModal(modalTypes.preview)}>
+                  <IconButton
+                    onClick={() => toggleModal(modalTypes.preview)}
+                    disabled={!isArray}
+                  >
                     <PreviewIcon />
                   </IconButton>
                   <IconButton disabled={!isArray} onClick={handleDownload}>
